@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import App from "../../components/App/App";
 
@@ -43,7 +45,12 @@ class AppContainer extends React.Component {
 
   guessLetterHandler = event => {
     const newGuessedLetters = [...this.state.guessedLetters];
-    newGuessedLetters.push(this.state.currentChosenLetter);
+    console.log(newGuessedLetters)
+    if (this.state.currentChosenLetter) {
+      newGuessedLetters.push(this.state.currentChosenLetter);
+    } else {
+      alert("You did not guess any letter!")
+    }
     this.setState({
       guessedLetters: newGuessedLetters,
       currentChosenLetter: ""

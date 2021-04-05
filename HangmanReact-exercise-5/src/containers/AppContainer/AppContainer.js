@@ -36,13 +36,16 @@ class AppContainer extends React.Component {
   };
 
   chosenLetterHandler = event => {
+    console.log("handling")
     const newState = { ...this.state };
     newState.currentChosenLetter = event.target.value;
     this.setState(newState);
   };
 
   guessLetterHandler = event => {
+    console.log(this.state.currentChosenLetter.length)
     if (this.state.currentChosenLetter.length > 0) {
+      console.log(this.state.currentChosenLetter)
       const newGuessedLetters = [...this.state.guessedLetters];
       newGuessedLetters.push(this.state.currentChosenLetter);
       this.setState({

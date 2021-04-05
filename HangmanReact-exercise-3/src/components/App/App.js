@@ -15,7 +15,7 @@ const wordGuessed = (word, guessedLetters) => {
   // We can do this with a for loop to.
   let remaining = word.filter(letter =>
     // If the letter is guessed return false (we want to remove that then)
-    guessedLetters.includes(letter)
+    !guessedLetters.includes(letter)
   );
   // If we have letters left the word is not yet guessed
   return remaining.length === 0;
@@ -40,6 +40,7 @@ const getWrongLetters = (word, guessedLetters) =>
 const App = props => {
   const game = props.game;
   const gameIsOver = isGameOver(game);
+  console.log(game, gameIsOver)
   const wordWasGuessed = wordGuessed(game.chosenWord, game.guessedLetters);
   const wrongLetters = getWrongLetters(game.chosenWord, game.guessedLetters);
 

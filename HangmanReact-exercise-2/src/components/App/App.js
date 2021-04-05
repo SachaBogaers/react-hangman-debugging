@@ -22,6 +22,7 @@ const isGameOver = (game, wrongLetters, wordWasGuessed) =>
   wordWasGuessed || wrongLetters.length >= game.maxGuesses;
 
 const App = props => {
+  console.log("app", props)
   const game = props.game;
   const wordWasGuessed = wordGuessed(game.chosenWord, game.guessedLetters);
   const wrongLetters = getWrongLetters(game.chosenWord, game.guessedLetters);

@@ -45,10 +45,12 @@ class AppContainer extends React.Component {
     const inputGiven = this.state.currentChosenLetter.length > 0;
     if (inputGiven) {
       const newGuessedLetters = [...this.state.guessedLetters];
-      newGuessedLetters.push(this.state.currentChosenLetter);
-      this.setState({
-        guessedLetters: newGuessedLetters
-      });
+      if (!newGuessedLetters.includes(this.state.currentChosenLetter)) {
+        newGuessedLetters.push(this.state.currentChosenLetter);
+        this.setState({
+          guessedLetters: newGuessedLetters
+        });
+      }
     }
     this.setState({ currentChosenLetter: "" });
     event.preventDefault();
